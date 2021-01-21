@@ -173,7 +173,7 @@
   resolved "https://registry.yarnpkg.com/@angular/common/-/common-9.0.7.tgz#a5d96515ac0db6d7fccb14e16d2bf713cf845a9d"
   integrity sha512-B58YgxZva1DBaeayOBsaUOOkoyR+GRibuNC3gfOMm2vXeW9eCNX+jvDtw767GnKm2yGzIq8wB3x6GHojN00dPw==
 
-"@angular/compiler-cli@^10.2.4":
+"@angular/compiler-cli@^10.1.1":
   version "10.2.4"
   resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-10.2.4.tgz#e90f943fc34edf3a2d65ef2d7fe27fafa0b365d7"
   integrity sha512-gpw7Px6c2EaVUiDrU4PLaxf5zk8oJ72Yq62YZ8k4Jd7Vhl39Bhx9a9/I3GFQzZ8X6W/VJMWfZRs3E7bm1krRkw==
