@@ -173,13 +173,11 @@
   resolved "https://registry.yarnpkg.com/@angular/common/-/common-9.0.7.tgz#a5d96515ac0db6d7fccb14e16d2bf713cf845a9d"
   integrity sha512-B58YgxZva1DBaeayOBsaUOOkoyR+GRibuNC3gfOMm2vXeW9eCNX+jvDtw767GnKm2yGzIq8wB3x6GHojN00dPw==
 
-"@angular/compiler-cli@^11.1.0":
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-10.1.0.tgz#111f420a9ab9274947f805b9f41ddce8f24070ea"
-  integrity sha512-PLeVrqBpn43G7DeBkDQqH38Y+VMlCIbxiP4Vv1rFAmKVNIm9J8m8jdC3EQSTXVV+L3oDCVP5/ERSCZ8Jqx6UoA==
+"@angular/compiler-cli@^10.1.0":
+  version "10.2.4"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-10.2.4.tgz#e90f943fc34edf3a2d65ef2d7fe27fafa0b365d7"
+  integrity sha512-gpw7Px6c2EaVUiDrU4PLaxf5zk8oJ72Yq62YZ8k4Jd7Vhl39Bhx9a9/I3GFQzZ8X6W/VJMWfZRs3E7bm1krRkw==
   dependencies:
-    "@babel/core" "^7.8.6"
-    "@babel/types" "^7.8.6"
     canonical-path "1.0.0"
     chokidar "^3.0.0"
     convert-source-map "^1.5.1"
@@ -256,7 +254,7 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@^7.7.5", "@babel/core@^7.8.6":
+"@babel/core@^7.7.5":
   version "7.12.10"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.12.10.tgz#b79a2e1b9f70ed3d84bbfb6d8c4ef825f606bccd"
   integrity sha512-eTAlQKq65zHfkHZV0sIVODCPGVgoo1HdBlbSLi9CqOzuZanMv2ihzY+4paiKr1mH+XmYESMAmJ/dpZ68eN6d8w==
@@ -899,7 +897,7 @@
     globals "^11.1.0"
     lodash "^4.17.19"
 
-"@babel/types@^7.10.4", "@babel/types@^7.10.5", "@babel/types@^7.12.1", "@babel/types@^7.12.10", "@babel/types@^7.12.11", "@babel/types@^7.12.12", "@babel/types@^7.12.5", "@babel/types@^7.12.7", "@babel/types@^7.4.0", "@babel/types@^7.7.4", "@babel/types@^7.8.6":
+"@babel/types@^7.10.4", "@babel/types@^7.10.5", "@babel/types@^7.12.1", "@babel/types@^7.12.10", "@babel/types@^7.12.11", "@babel/types@^7.12.12", "@babel/types@^7.12.5", "@babel/types@^7.12.7", "@babel/types@^7.4.0", "@babel/types@^7.7.4":
   version "7.12.12"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.12.12.tgz#4608a6ec313abbd87afa55004d373ad04a96c299"
   integrity sha512-lnIX7piTxOH22xE7fDXDbSHg9MM1/6ORnafpJmov5rs0kX5g4BZxeXNJLXsMRiO0U5Rb8/FvMS6xlTnTHvxonQ==
