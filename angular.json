@@ -1,9 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ey-fe-dev": {
+    "ey-fe": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ey-fe-dev",
+            "outputPath": "dist/ey-fe",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -39,7 +39,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -62,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ey-fe-dev:build"
+            "browserTarget": "ey-fe:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ey-fe-dev:build:production"
+              "browserTarget": "ey-fe:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ey-fe-dev:build"
+            "browserTarget": "ey-fe:build"
           }
         },
         "test": {
@@ -110,15 +109,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ey-fe-dev:serve"
+            "devServerTarget": "ey-fe:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ey-fe-dev:serve:production"
+              "devServerTarget": "ey-fe:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "ey-fe-dev"
+    }
+  },
+  "defaultProject": "ey-fe"
 }
