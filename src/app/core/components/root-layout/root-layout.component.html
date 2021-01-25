@@ -1,12 +1,32 @@
 <div>
   <app-navbar></app-navbar>
-  <div class="m-4 d-flex align-items-center">
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-default">Input</span>
+  <div class="m-4">
+    <form [formGroup]="formGroup">
+      <div class="input-group mb-3">
+        <div class="ey-input-group-prepend">
+          <span class="input-group-text">Hashtag name</span>
+        </div>
+        <input type="text" class="form-control" formControlName="hashtag">
       </div>
-      <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-    </div>
-    <button type="button" class="btn btn-secondary">Find</button>
+      <div class="input-group mb-3">
+        <div class="ey-input-group-prepend">
+          <span class="input-group-text">Date</span>
+        </div>
+        <input type="date" class="form-control" [max]="currentDate" formControlName="searchDate">
+      </div>
+      <div class="input-group mb-3">
+        <div class="ey-input-group-prepend">
+          <span class="input-group-text">Limit</span>
+        </div>
+        <input type="text" class="form-control" formControlName="limit">
+      </div>
+      <div class="input-group mb-3">
+        <div class="ey-input-group-prepend">
+          <span class="input-group-text">Language</span>
+        </div>
+        <input type="text" class="form-control" formControlName="language">
+      </div>
+    </form>
+    <button class="btn btn-primary">Send</button>
   </div>
 </div>
