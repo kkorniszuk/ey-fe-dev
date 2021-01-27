@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ApiClient, MakeSentimentAnalyseCommand } from '../../api/api-client';
 
 @Component({
   selector: 'app-root-layout',
@@ -9,19 +10,29 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class RootLayoutComponent implements OnInit {
   public currentDate: string;
   public formGroup = new FormGroup({
-    hashtag: new FormControl(''),
-    searchDate: new FormControl(''),
-    limit: new FormControl(''),
-    language: new FormControl(''),
+    hashtag: new FormControl('', [Validators.required]),
+    fromDate: new FormControl('', [Validators.required]),
+    limit: new FormControl('', [Validators.required]),
+    language: new FormControl('', [Validators.required]),
   });
 
-  constructor() {
+  private apiClient: ApiClient;
+
+  constructor(apiClient: ApiClient) {
     this.currentDate = this.formatDate();
+    this.apiClient = apiClient;
   }
 
   ngOnInit(): void {
   }
 
+  public sendRequest(): void {
+    const formData = this.formGroup.getRawValue();
+    const payload: MakeSentimentAnalyseCommand = new MakeSentimentAnalyseCommand(formData.hashtag, Number(formData.limit), formData.fromDate, formData.language);
+    this.apiClient.MakeSentimentAnalyse(payload).subscribe((response) => {
+      console.log(response);
+    });
+  }
 
   private formatDate(): string {
     // tslint:disable-next-line:one-variable-per-declaration

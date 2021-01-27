@@ -12,7 +12,7 @@
         <div class="ey-input-group-prepend">
           <span class="input-group-text">Date</span>
         </div>
-        <input type="date" class="form-control" [max]="currentDate" formControlName="searchDate">
+        <input type="date" class="form-control" [max]="currentDate" formControlName="fromDate">
       </div>
       <div class="input-group mb-3">
         <div class="ey-input-group-prepend">
@@ -27,6 +27,6 @@
         <input type="text" class="form-control" formControlName="language">
       </div>
     </form>
-    <button class="btn btn-primary">Send</button>
+    <button class="btn btn-primary" [disabled]="formGroup.invalid" (click)="sendRequest()">Send</button>
   </div>
 </div>

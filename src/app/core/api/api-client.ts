@@ -1,7 +1,6 @@
-import { mergeMap as _observableMergeMap, catchError as _observableCatch } from 'rxjs/operators';
-import { Observable, throwError as _observableThrow, of as _observableOf } from 'rxjs';
-import { Injectable, Inject, Optional, InjectionToken } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse, HttpResponseBase } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Injectable, Inject, InjectionToken } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
@@ -18,14 +17,17 @@ export class ApiClient {
   }
 
   MakeSentimentAnalyse(command: MakeSentimentAnalyseCommand): Observable<any> {
-    const url = this.baseUrl + 'tutaj/url/do/ep';
-
+    const url = this.baseUrl + 'analyze';
     const options: any = {
-      body: command,
+      body: {
+        hashtag: command.hashtag,
+        limit: command.limit,
+        fromDate: command.fromDate,
+        language: command.language
+      },
       observe: 'response',
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
+        'Access-Control-Allow-Origin': '*'
       })
     };
 
@@ -34,9 +36,15 @@ export class ApiClient {
 }
 
 export class MakeSentimentAnalyseCommand {
+  constructor(hashtag: string, limit: number, date: string, language: string) {
+    this.fromDate = date;
+    this.hashtag = hashtag;
+    this.limit = limit;
+    this.language = language;
+  }
+
   hashtag: string;
-  fromDate: Date;
+  fromDate: string;
   limit: number;
   language: string;
-
 }
