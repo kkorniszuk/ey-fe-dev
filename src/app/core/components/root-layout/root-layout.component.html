@@ -30,4 +30,13 @@
     <button class="btn btn-primary" [disabled]="formGroup.invalid" (click)="sendRequest()">Send</button>
   </div>
 </div>
-<app-hashtag-analyse></app-hashtag-analyse>
+<div
+    *ngFor="let tweet of analyzedTweets"
+>
+  <app-hashtag-analyse
+    [sentiment]="tweet.sentiment"
+    [tweetText]="tweet.tweetText"
+    [hashtag]="tweet.hashtag"
+  >
+  </app-hashtag-analyse>
+</div>

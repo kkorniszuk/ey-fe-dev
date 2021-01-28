@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-hashtag-analyse',
@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hashtag-analyse.component.scss']
 })
 export class HashtagAnalyseComponent implements OnInit {
+
+  @Input()
+  tweetText: string;
+  @Input()
+  hashtag: string;
+  @Input()
+  sentiment: number;
 
   constructor() { }
 

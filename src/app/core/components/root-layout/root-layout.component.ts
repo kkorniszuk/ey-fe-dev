@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiClient, MakeSentimentAnalyseCommand } from '../../api/api-client';
 
+interface Tweet {
+  hashtag: string;
+  tweetText: string;
+  sentiment: number;
+}
+
 @Component({
   selector: 'app-root-layout',
   templateUrl: './root-layout.component.html',
@@ -15,7 +21,7 @@ export class RootLayoutComponent implements OnInit {
     limit: new FormControl('', [Validators.required]),
     language: new FormControl('', [Validators.required]),
   });
-
+  public analyzedTweets: Tweet[] = [];
   private apiClient: ApiClient;
 
   constructor(apiClient: ApiClient) {
@@ -30,7 +36,14 @@ export class RootLayoutComponent implements OnInit {
     const formData = this.formGroup.getRawValue();
     const payload: MakeSentimentAnalyseCommand = new MakeSentimentAnalyseCommand(formData.hashtag, Number(formData.limit), formData.fromDate, formData.language);
     this.apiClient.MakeSentimentAnalyse(payload).subscribe((response) => {
-      console.log(response);
+      const tweets = response.body;
+      tweets.forEach((tweet) => {
+        this.analyzedTweets.push({
+          tweetText: tweet.text,
+          hashtag: tweet.query,
+          sentiment: tweet.sentiment_analysis[0] ? tweet.sentiment_analysis[0].sentimentScore : 0
+        });
+      });
     });
   }
 

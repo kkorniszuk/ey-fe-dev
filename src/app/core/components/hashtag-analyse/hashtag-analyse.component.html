@@ -1,27 +1,10 @@
-<div class="d-flex justify-content-center align-items-center border app-hashtag-analyse positive">
+<div class="d-flex justify-content-center align-items-center border app-hashtag-analyse" [ngClass]="{'positive': (sentiment > 0.4 && sentiment <= 1), 'neutreal': (sentiment > -0.4 && sentiment <= 0.4), 'negative': (sentiment >= -1 && sentiment <= 0.4)}">
   <div class="w-75 border-right p-2 bg-white">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis dolorem doloremque ea, earum, est et iusto laudantium necessitatibus nobis saepe vitae. Aliquam commodi ducimus officia repellendus voluptatibus. Neque, voluptas!
+    {{tweetText}}
   </div>
   <div class="w-25 text-center p-2">
-    #hashtag
-  </div>
-</div>
-
-<div class="d-flex justify-content-center align-items-center border app-hashtag-analyse negative">
-  <div class="w-75 border-right p-2 bg-white">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis dolorem doloremque ea, earum, est et iusto laudantium necessitatibus nobis saepe vitae. Aliquam commodi ducimus officia repellendus voluptatibus. Neque, voluptas!
-  </div>
-  <div class="w-25 text-center p-2">
-    #hashtag
+    {{hashtag}}
   </div>
 </div>
 
 
-<div class="d-flex justify-content-center align-items-center border app-hashtag-analyse neutreal">
-  <div class="w-75 border-right p-2 bg-white">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis dolorem doloremque ea, earum, est et iusto laudantium necessitatibus nobis saepe vitae. Aliquam commodi ducimus officia repellendus voluptatibus. Neque, voluptas!
-  </div>
-  <div class="w-25 text-center p-2">
-    #hashtag
-  </div>
-</div>
