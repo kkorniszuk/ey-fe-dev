@@ -27,7 +27,7 @@ export class ApiClient {
       },
       observe: 'response',
       headers: new HttpHeaders({
-        'Access-Control-Allow-Origin': '*'
+        'access-control-allow-origin': '*'
       })
     };
 

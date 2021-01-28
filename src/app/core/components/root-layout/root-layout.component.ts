@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiClient, MakeSentimentAnalyseCommand } from '../../api/api-client';
 
@@ -13,7 +13,7 @@ interface Tweet {
   templateUrl: './root-layout.component.html',
   styleUrls: ['./root-layout.component.scss']
 })
-export class RootLayoutComponent implements OnInit {
+export class RootLayoutComponent {
   public currentDate: string;
   public formGroup = new FormGroup({
     hashtag: new FormControl('', [Validators.required]),
@@ -29,13 +29,13 @@ export class RootLayoutComponent implements OnInit {
     this.apiClient = apiClient;
   }
 
-  ngOnInit(): void {
-  }
-
   public sendRequest(): void {
     const formData = this.formGroup.getRawValue();
     const payload: MakeSentimentAnalyseCommand = new MakeSentimentAnalyseCommand(formData.hashtag, Number(formData.limit), formData.fromDate, formData.language);
     this.apiClient.MakeSentimentAnalyse(payload).subscribe((response) => {
+      while(this.analyzedTweets.length > 0){
+        this.analyzedTweets.pop();
+      }
       const tweets = response.body;
       tweets.forEach((tweet) => {
         this.analyzedTweets.push({
